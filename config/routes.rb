@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   root to: "main#index"
 
   resources :books
+  
+  get "/authors", to: "authors#index"
+  post "/save", to: "authors#create"
  
 end

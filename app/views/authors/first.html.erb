@@ -1,0 +1,5 @@
+<%= form_for :author, url: "/save", method: "post" do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.submit "save creature" %>
+<% end %>
