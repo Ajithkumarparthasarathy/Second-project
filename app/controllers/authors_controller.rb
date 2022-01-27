@@ -2,13 +2,27 @@ class AuthorsController < ApplicationController
     def index
     end
 
-    def create
-        author=Author.new(author_params)
-        if author.save
-            render "success"
-        else
-            render "failed"
-        end
+    def first
     end
-end
 
+    def create
+      @author=Author.new(author_params)
+      if @author.save
+        respond_to do |format|
+          format.html { redirect_to action: "success" }
+        end
+      else
+        render "failed"
+      end
+    end
+
+    def success
+    end
+
+
+    private
+    def author_params
+        params.require(:author).permit(:first_name, :last_name)
+    end
+
+end
